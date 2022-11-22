@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loop: 1
+  multiplcator: 2
 --- !u!1 &113170205
 GameObject:
   m_ObjectHideFlags: 0
