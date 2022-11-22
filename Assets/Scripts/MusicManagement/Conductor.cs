@@ -25,6 +25,7 @@ public class Conductor : MonoBehaviour
     public double songStartTime;
     //How many seconds of offset in the music
     public double songOffset;
+	//0.095
 
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;

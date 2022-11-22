@@ -2555,7 +2555,7 @@ MonoBehaviour:
   songPosition: 0
   songPositionInBeats: 0
   songStartTime: 0
-  songOffset: 0.095
+  songOffset: 0.15
   musicSource: {fileID: 1581955651}
 --- !u!4 &1700458343
 Transform:

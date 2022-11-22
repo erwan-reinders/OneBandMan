@@ -6,7 +6,8 @@ using UnityEngine.Playables;
 public class TimelineTimeline : MonoBehaviour
 {
     public bool loop;
-    //public float loopTime;
+	public double multiplcator = 1.0d;
+	
     private int loopCounter;
     private PlayableDirector director;
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class TimelineTimeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        double time = Conductor.Instance.songPositionInBeats * (1.0d / TimelineProjectSettings.instance.defaultFrameRate);
+        double time = Conductor.Instance.songPositionInBeats * (multiplcator / TimelineProjectSettings.instance.defaultFrameRate);
         if (loop)
         {
             time -= loopCounter * director.duration;
@@ -29,5 +30,8 @@ public class TimelineTimeline : MonoBehaviour
         {
             loopCounter++;
         }
+		else if (director.time < 0.0f) {
+			loopCounter--;
+		}
     }
 }
