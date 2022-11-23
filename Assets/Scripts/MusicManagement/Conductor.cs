@@ -53,9 +53,13 @@ public class Conductor : MonoBehaviour
         musicSource.Play();
     }
 
-    public double getPosInBeatFromTime(double time)
+    public double TimeToBeat(double time)
     {
         return (time - songStartTime - songOffset) * invSecPerBeat;
+    }
+    public double BeatToTime(double beat)
+    {
+        return (beat * secPerBeat) + songOffset;
     }
 
     // Update is called once per frame

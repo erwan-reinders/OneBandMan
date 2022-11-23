@@ -24,20 +24,21 @@ public class InputTest : MonoBehaviour
         {
             rotation++;
 
-            float inputTime = Conductor.Instance.songPositionInBeats;
+            float inputTime = Conductor.Instance.songPosition;
+            float inputBeat = Conductor.Instance.songPositionInBeats;
 
-            float floor, frac;
-            Util.GetFloorFrac(inputTime, out floor, out frac);
+            float floorBeat, fracBeat;
+            Util.GetFloorFrac(inputBeat, out floorBeat, out fracBeat);
 
-            if (frac > 0.5f)
+            if (fracBeat > 0.5f)
             {
                 // Too soon
-                inputLatency = frac - 1.0f;
+                inputLatency = inputTime - (float)Conductor.Instance.BeatToTime(floorBeat + 1.0f);
             }
             else
             {
                 //Too late
-                inputLatency = frac;
+                inputLatency = inputTime - (float)Conductor.Instance.BeatToTime(floorBeat);
             }
 
             inputsLatency[rotation % nbInput] = inputLatency;
