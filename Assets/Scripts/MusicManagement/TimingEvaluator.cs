@@ -26,6 +26,11 @@ public class TimingEvaluator
         return -1;
     }
 
+    public double GetLatestInput()
+    {
+        return timingWindows[timingWindows.Length - 1].end;
+    }
+
     [Serializable]
     public class TimingWindow
     {
@@ -41,7 +46,7 @@ public class TimingEvaluator
         public TimingWindow(double symetricTime)
         {
             this.start = -symetricTime;
-            this.end   =  symetricTime;
+            this.end = symetricTime;
         }
 
         public bool Contains(double time)

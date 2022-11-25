@@ -1,92 +1,87 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using UnityEngine;
 
 public class SongManager : MonoBehaviour
 {
-    public static SongManager instance;
+    public string songName;
+    public SongChanelManager[] chanels;
 
-    public NotePool pool;
-    [SerializeField]
-    public TimingEvaluator timingEvaluator;
-
-    private Note[] notes;
-    private int lastNoteIndex;
-
-    private List<Note> instancedNotes;
-
-
-    void Start()
+    public static string GetSongPathFromName(string songName)
     {
-        if (instance == null)
+        return Application.dataPath + "/Songs/" + songName;
+    }
+
+    public static void SaveSongToJSON(string songName, SongSettings songSettings)
+    {
+        string path = GetSongPathFromName(songName);
+        string filePath = path + "/songNotes.json";
+        FileStream file;
+        if (File.Exists(filePath))
         {
-            instance = this;
+            file = File.OpenWrite(filePath);
         }
         else
         {
-            Debug.LogError("Error : Only one SongManager can exist");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            file = File.Create(filePath);
         }
 
-        notes = new Note[16];
-        for (int i = 0; i < 16; i++)
-        {
-            notes[i] = new SimpleNote(i+5, pool);
-        }
-
-        instancedNotes = new List<Note>();
-        lastNoteIndex = 0;
+        string json = SongSettings.SaveToJSON(songSettings);
+        file.Write(Encoding.ASCII.GetBytes(json));
     }
 
-    void Update()
+    public static SongSettings LoadSongFromJSON(string songName)
     {
-        UpdateInstanciedNotes();
-        SpawnNewNotes();
+        string path = GetSongPathFromName(songName) + "/songNotes.json";
+        FileStream file;
+        if (File.Exists(path))
+        {
+            file = File.OpenRead(path);
+        }
+        else
+        {
+            Debug.LogError("Error : " + songName + " does not exists (" + path+")");
+            return null;
+        }
+
+        byte[] b = new byte[1024];
+        int readLen;
+        StringBuilder stringBuilder = new StringBuilder();
+        while ((readLen = file.Read(b, 0, b.Length)) > 0)
+        {
+            stringBuilder.Append(Encoding.ASCII.GetString(b, 0, readLen));
+        }
+
+        return SongSettings.LoadFromJSON(stringBuilder.ToString());
     }
 
-    private void UpdateInstanciedNotes()
+    private void Start()
     {
-        //Todo remplacer Input par un InputManager plus complexe
-        bool press = Input.GetKeyDown(KeyCode.Space);
-        bool release = Input.GetKeyUp(KeyCode.Space);
-        for (int n = 0; n < instancedNotes.Count; n++)
-        {
-            Note note = instancedNotes[n];
-            if (press)
-            {
-                note.OnPlayPress();
-                //press = false;
-            }
-            if (release)
-            {
-                note.OnPlayRelease();
-                //release = false;
-            }
-            note.Update();
-            if (!note.IsPlaying)
-            {
-                instancedNotes.RemoveAt(n);
-                n--;
-            }
-        }
-    }
+        SongSettings settings = LoadSongFromJSON(songName);
 
-    private void SpawnNewNotes()
-    {
-        //Todo get real value
-        double beatInAdvance = 2.0d;
-        double songPos = Conductor.Instance.songPositionInBeats;
-        bool spawnNewNote = true;
-
-        while (lastNoteIndex < notes.Length && spawnNewNote)
+        int nbSongChannel = settings.songChanels.Count;
+        if (chanels.Length != nbSongChannel)
         {
-            Note note = notes[lastNoteIndex];
-            spawnNewNote = songPos >= note.Beat - beatInAdvance;
-            if (spawnNewNote)
-            {
-                note.Start();
-                instancedNotes.Add(note);
-                lastNoteIndex++;
-            }
+            Debug.LogWarning("Warning : Scene chanels (" + chanels.Length + ") does note match song file chanels (" + nbSongChannel + ")");
         }
+        for (int c = 0; c < nbSongChannel; c++)
+        {
+            SongSettings.SongChanel songChanel = settings.songChanels[c];
+            SongChanelManager channel = chanels[c];
+            int nbNotes = songChanel.notes.Count;
+            Note[] notes = new Note[nbNotes];
+            for (int n = 0; n < nbNotes; n++)
+            {
+                notes[n] = songChanel.notes[n].Construct(channel);
+            }
+            channel.SetNotes(notes);
+        }
+
+
+        Conductor.Instance.Play();
     }
 }

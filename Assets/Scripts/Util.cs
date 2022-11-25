@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class Util
@@ -36,5 +34,16 @@ public static class Util
         {
             return n1 * (x -= 2.625f / d1) * x + 0.984375f;
         }
+    }
+
+
+    public static Vector3 LerpUnclamped(Vector3 a, Vector3 b, float inter)
+    {
+        return a + (b - a) * inter;
+    }
+
+    public static float LerpUnclamped(float a, float b, float inter)
+    {
+        return a + (b - a) * inter;
     }
 }

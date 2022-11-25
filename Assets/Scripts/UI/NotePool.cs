@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class NotePool : MonoBehaviour
+public abstract class NotePool : MonoBehaviour
 {
     public int poolNb;
 
     public Transform spawnPos;
-    public Transform timePos;
 
     public GameObject pool;
     public GameObject objectPrefab;
@@ -39,5 +36,11 @@ public class NotePool : MonoBehaviour
     public void DeleteNote(GameObject obj)
     {
         obj.SetActive(false);
+    }
+
+    public abstract void UpdateNote(GameObject obj, float interpol);
+    public virtual void DisplayInput(InputSystem.Inputs input)
+    {
+
     }
 }

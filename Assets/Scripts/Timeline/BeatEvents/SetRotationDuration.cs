@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SetRotationDuration : BeatDurationEvent
@@ -13,11 +11,11 @@ public class SetRotationDuration : BeatDurationEvent
 
     public override void OnDeactivate(GameObject target)
     {
-        
+
     }
 
     public override void OnUpdate(GameObject target, double time)
     {
-        
+
     }
 }

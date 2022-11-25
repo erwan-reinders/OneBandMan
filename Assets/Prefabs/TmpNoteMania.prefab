@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 262660715872855018}
   - component: {fileID: 262660715872855017}
   m_Layer: 0
-  m_Name: TmpNote
+  m_Name: TmpNoteMania
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

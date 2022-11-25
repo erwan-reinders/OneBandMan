@@ -5,8 +5,9 @@ public interface Note
     public double Beat { get; }
     public bool IsPlaying { get; }
 
-    public void OnPlayPress();
-    public void OnPlayRelease();
+    //Returns true if we should consume input
+    public bool OnPlayPress();
+    public bool OnPlayRelease();
 
     public void Start();
     public void Update();

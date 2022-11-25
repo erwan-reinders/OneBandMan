@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Conductor : MonoBehaviour
@@ -9,7 +7,7 @@ public class Conductor : MonoBehaviour
 
     //Song beats per minute
     //This is determined by the song you're trying to sync up to
-    public double songBpm;
+    public double songBpm = 1.0d;
 
     //The number of seconds for each song beat
     public double secPerBeat;
@@ -17,21 +15,22 @@ public class Conductor : MonoBehaviour
 
     //Current song position, in seconds
     public float songPosition;
+    public float songPositionUI;
 
     //Current song position, in beats
     public float songPositionInBeats;
+    public float songPositionInBeatsUI;
 
     //How many seconds have passed since the song started
     public double songStartTime;
     //How many seconds of offset in the music
     public double songOffset;
-	//0.095
+    //0.095
 
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;
 
-    // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         if (Instance == null)
         {
@@ -42,6 +41,16 @@ public class Conductor : MonoBehaviour
             Debug.LogError("Only one Conductor must exist!");
         }
 
+        //Calculate the number of seconds in each beat
+        secPerBeat = 60d / songBpm;
+        invSecPerBeat = 1d / secPerBeat;
+
+        //Record the time when the music starts
+        songStartTime = AudioSettings.dspTime;
+    }
+
+    public void Play()
+    {
         //Calculate the number of seconds in each beat
         secPerBeat = 60d / songBpm;
         invSecPerBeat = 1d / secPerBeat;
@@ -62,13 +71,14 @@ public class Conductor : MonoBehaviour
         return (beat * secPerBeat) + songOffset;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //determine how many seconds since the song started
         songPosition = (float)(AudioSettings.dspTime - songStartTime - songOffset);
+        songPositionUI = songPosition - (float)songOffset;
 
         //determine how many beats since the song started
         songPositionInBeats = (float)(songPosition * invSecPerBeat);
+        songPositionInBeatsUI = (float)(songPositionUI * invSecPerBeat);
     }
 }

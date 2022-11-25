@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleNote : Note
@@ -10,52 +8,53 @@ public class SimpleNote : Note
     private bool isPlaying;
     public bool IsPlaying { get => isPlaying; }
 
-    private NotePool pool;
+    private SongChanelManager songChanelManager;
     private GameObject note;
 
-    public SimpleNote(double beat, NotePool pool)
+    public SimpleNote(double beat, SongChanelManager songChanelManager)
     {
         Beat = beat;
-        this.pool = pool;
+        this.songChanelManager = songChanelManager;
     }
 
-    public void OnPlayPress()
+    public bool OnPlayPress()
     {
         // Evaluate timing
         double timing = Conductor.Instance.songPosition - time;
-        int timingWindow = SongManager.instance.timingEvaluator.EvaluateTiming(timing);
+        int timingWindow = songChanelManager.timingEvaluator.EvaluateTiming(timing);
 
         if (timingWindow >= 0)
         {
             Debug.Log(timing + " : " + timingWindow);
             OnAction(timingWindow);
+            return true;
         }
+        return false;
     }
-    public void OnPlayRelease()
+    public bool OnPlayRelease()
     {
         //Nothing
+        return false;
     }
 
     public void Start()
     {
         time = Conductor.Instance.BeatToTime(Beat);
-        note = pool.SpawnNewNote();
+        note = songChanelManager.pool.SpawnNewNote();
 
         isPlaying = true;
     }
     public void Update()
     {
-        //Todo get real values
-        float timingEarly = 1.0f; // difficulty option or nb Beats seen in advance
-        float timingLate = 0.5f; // largest Timing window
+        float timingLate = (float)songChanelManager.timingEvaluator.GetLatestInput();
 
-        float startTime = (float)time - timingEarly;
-        float currentTime = Conductor.Instance.songPosition;
-        float interpol = (currentTime - startTime) / ((float)time - startTime);
+        float startBeat = (float)(Beat - songChanelManager.beatInAdvance);
+        float currentBeat = Conductor.Instance.songPositionInBeatsUI;
+        float interpol = (currentBeat - startBeat) / ((float)Beat - startBeat);
 
-        note.transform.position = pool.spawnPos.position + (pool.timePos.position - pool.spawnPos.position) * interpol;
+        songChanelManager.pool.UpdateNote(note, interpol);
 
-        if (currentTime > time + timingLate)
+        if (Conductor.Instance.songPosition > time + timingLate)
         {
             OnAction(-1);
         }
@@ -65,7 +64,7 @@ public class SimpleNote : Note
     {
         //Todo play effects
 
-        pool.DeleteNote(note);
+        songChanelManager.pool.DeleteNote(note);
 
         isPlaying = false;
     }

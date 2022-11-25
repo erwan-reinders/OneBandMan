@@ -16,7 +16,7 @@ namespace Unity.Template.VR
 
         [SerializeField]
         GameObject m_RightController;
-        
+
         [SerializeField]
         GameObject m_LeftControllerOculusPackage;
 
@@ -30,7 +30,7 @@ namespace Unity.Template.VR
 #else
             var loaders = XRGeneralSettings.Instance.Manager.activeLoaders;
 #endif
-            
+
             foreach (var loader in loaders)
             {
                 if (loader.name.Equals("Oculus Loader"))

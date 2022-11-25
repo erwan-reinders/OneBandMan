@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
 public class TimelineTimeline : MonoBehaviour
 {
     public bool loop;
-	public double multiplcator = 1.0d;
-	
+    public double multiplcator = 1.0d;
+
     private int loopCounter;
     private PlayableDirector director;
     // Start is called before the first frame update
@@ -30,8 +28,9 @@ public class TimelineTimeline : MonoBehaviour
         {
             loopCounter++;
         }
-		else if (director.time < 0.0f) {
-			loopCounter--;
-		}
+        else if (director.time < 0.0f)
+        {
+            loopCounter--;
+        }
     }
 }
