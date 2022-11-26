@@ -61,24 +61,26 @@ public class SongManager : MonoBehaviour
 
     private void Start()
     {
-        SongSettings settings = LoadSongFromJSON(songName);
+        if (songName.Length > 0) {
+            SongSettings settings = LoadSongFromJSON(songName);
 
-        int nbSongChannel = settings.songChanels.Count;
-        if (chanels.Length != nbSongChannel)
-        {
-            Debug.LogWarning("Warning : Scene chanels (" + chanels.Length + ") does note match song file chanels (" + nbSongChannel + ")");
-        }
-        for (int c = 0; c < nbSongChannel; c++)
-        {
-            SongSettings.SongChanel songChanel = settings.songChanels[c];
-            SongChanelManager channel = chanels[c];
-            int nbNotes = songChanel.notes.Count;
-            Note[] notes = new Note[nbNotes];
-            for (int n = 0; n < nbNotes; n++)
+            int nbSongChannel = settings.songChanels.Count;
+            if (chanels.Length != nbSongChannel)
             {
-                notes[n] = songChanel.notes[n].Construct(channel);
+                Debug.LogWarning("Warning : Scene chanels (" + chanels.Length + ") does note match song file chanels (" + nbSongChannel + ")");
             }
-            channel.SetNotes(notes);
+            for (int c = 0; c < nbSongChannel; c++)
+            {
+                SongSettings.SongChanel songChanel = settings.songChanels[c];
+                SongChanelManager channel = chanels[c];
+                int nbNotes = songChanel.notes.Count;
+                Note[] notes = new Note[nbNotes];
+                for (int n = 0; n < nbNotes; n++)
+                {
+                    notes[n] = songChanel.notes[n].Construct(channel);
+                }
+                channel.SetNotes(notes);
+            }
         }
 
 

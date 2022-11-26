@@ -19,7 +19,10 @@ public class SongChanelManager : MonoBehaviour
     {
         instancedNotes = new List<Note>();
         lastNoteIndex = 0;
-        notes = new Note[0];
+        if (notes == null)
+        {
+            notes = new Note[0];
+        }
     }
 
     void Update()

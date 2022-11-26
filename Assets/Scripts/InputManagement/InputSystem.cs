@@ -33,5 +33,6 @@ public static class InputSystem
         public bool Active;
         public bool Pressed;
         public bool Released;
+        public float Volume;
     }
 }
