@@ -92,40 +92,49 @@
     {
       "notes": [
         {
-          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
-          "beat": 4.0
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 4.0,
+            "sound":  "testSound"
         },
         {
-          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
-          "beat": 5.0
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 5.0,
+            "sound": "testSound"
         },
         {
-          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
-          "beat": 6.0
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 6.0,
+            "sound": "testSound"
         },
         {
-          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
-          "beat": 7.0
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 7.0,
+            "sound": "testSound"
         },
         {
-          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
-          "beat": 8.0
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 8.0,
+            "sound": "testSound"
         },
         {
-          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
-          "beat": 9.0
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 9.0,
+            "sound": "testSound"
         },
         {
-          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
-          "beat": 10.0
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 10.0,
+            "sound": "testSound"
         },
         {
-          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
-          "beat": 11.0
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 11.0,
+            "sound": "testSound"
         },
         {
-          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
-          "beat": 12.0
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 12.0,
+            "sound": "testSound"
         }
       ]
     }

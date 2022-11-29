@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class SimpleNote : Note
 {
-    private double time;
+    protected double time;
     public double Time { get => time; }
     public double Beat { get; }
-    private bool isPlaying;
+    protected bool isPlaying;
     public bool IsPlaying { get => isPlaying; }
 
-    private SongChanelManager songChanelManager;
-    private GameObject note;
+    protected SongChanelManager songChanelManager;
+    protected GameObject note;
 
     public SimpleNote(double beat, SongChanelManager songChanelManager)
     {
@@ -60,7 +60,7 @@ public class SimpleNote : Note
         }
     }
 
-    private void OnAction(int timingWindow)
+    protected virtual void OnAction(int timingWindow)
     {
         //Todo play effects
 

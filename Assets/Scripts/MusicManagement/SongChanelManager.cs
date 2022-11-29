@@ -6,8 +6,10 @@ public class SongChanelManager : MonoBehaviour
     public string inputName;
     public double beatInAdvance = 2.0d;
     public NotePool pool;
+    public AudioSource audioSource;
     [SerializeField]
     public TimingEvaluator timingEvaluator;
+
 
     private Note[] notes;
     private int lastNoteIndex;

@@ -103,4 +103,19 @@ public class SongSettings
             return new SimpleNote(beat, songChanelManager);
         }
     }
+
+    [Serializable]
+    public class SongSoundNote : SongNote
+    {
+        public string sound;
+        public SongSoundNote(double beat, string sound)
+        {
+            this.beat = beat;
+            this.sound = sound;
+        }
+        public override Note Construct(SongChanelManager songChanelManager)
+        {
+            return new SoundNote(beat, songChanelManager, sound);
+        }
+    }
 }
