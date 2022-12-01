@@ -42,14 +42,21 @@ public class PercutingInput : InputManager
     void Update()
     {
         StickManager collidingStick = null;
+        float maxSpeed = 0;
+        bool justCollided = false;
         foreach (StickManager stick in sticks)
         {
             if (stick.InCollision && stick.CollidingObject == drum)
             {
                 collidingStick = stick;
-                break;
+                maxSpeed = Mathf.Max(maxSpeed, stick.Speed);
+                if (stick.JustCollided)
+                {
+                    justCollided = true;
+                }
             }
         }
+
 
         bool input = collidingStick != null && collidingStick.Speed > minHitSpeed;
 
@@ -64,9 +71,9 @@ public class PercutingInput : InputManager
         input = input || nbFramePassedActive > 0;
 
         bool lastFrameWasActive = inputs[chanelName].Active;
-        inputs[chanelName].Pressed = !lastFrameWasActive && input;
+        inputs[chanelName].Pressed = justCollided;
         inputs[chanelName].Active = input;
         inputs[chanelName].Released = lastFrameWasActive && !input;
-        inputs[chanelName].Volume = collidingStick != null ? collidingStick.Speed : 0;
+        inputs[chanelName].Volume = collidingStick != null ? maxSpeed : 0;
     }
 }

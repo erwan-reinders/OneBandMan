@@ -39,8 +39,4 @@ public abstract class NotePool : MonoBehaviour
     }
 
     public abstract void UpdateNote(GameObject obj, float interpol);
-    public virtual void DisplayInput(InputSystem.Inputs input)
-    {
-
-    }
 }

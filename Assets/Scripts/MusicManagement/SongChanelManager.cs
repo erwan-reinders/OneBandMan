@@ -6,8 +6,11 @@ public class SongChanelManager : MonoBehaviour
     public string inputName;
     public double beatInAdvance = 2.0d;
     public NotePool pool;
+    public AudioSource audioSource;
+    public AudioClip hitSound;
     [SerializeField]
     public TimingEvaluator timingEvaluator;
+
 
     private Note[] notes;
     private int lastNoteIndex;
@@ -27,8 +30,11 @@ public class SongChanelManager : MonoBehaviour
 
     void Update()
     {
-        UpdateInstanciedNotes();
-        SpawnNewNotes();
+        if (Conductor.Instance.musicPlaying)
+        {
+            UpdateInstanciedNotes();
+            SpawnNewNotes();
+        }
     }
 
     public void SetNotes(Note[] notes)
@@ -39,7 +45,6 @@ public class SongChanelManager : MonoBehaviour
     private void UpdateInstanciedNotes()
     {
         InputSystem.Inputs input = InputSystem.GetInput(inputName);
-        pool.DisplayInput(input);
         bool press = input.Pressed;
         bool release = input.Released;
         for (int n = 0; n < instancedNotes.Count; n++)

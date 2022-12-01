@@ -84,6 +84,6 @@ public class SongManager : MonoBehaviour
         }
 
 
-        Conductor.Instance.Play();
+        //Conductor.Instance.Play();
     }
 }

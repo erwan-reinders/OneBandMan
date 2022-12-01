@@ -8,9 +8,11 @@ public class StickManager : MonoBehaviour
     public bool InCollision { get; private set; }
     public GameObject CollidingObject { get; private set; }
     public float Speed { get; private set; }
+    public bool JustCollided { get; private set; }
 
     private Vector3 previousPos;
     private Renderer diplay;
+    private int nbFrameJustCollidedWait;
 
     private void Start()
     {
@@ -21,6 +23,14 @@ public class StickManager : MonoBehaviour
     {
         Speed = Vector3.Magnitude(transform.position - previousPos);
         previousPos = transform.position;
+        if (JustCollided)
+        {
+            nbFrameJustCollidedWait--;
+            if (nbFrameJustCollidedWait <= 0)
+            {
+                JustCollided = false;
+            }
+        }
     }
 
     private void OnEnable()
@@ -43,6 +53,8 @@ public class StickManager : MonoBehaviour
         if (collision.gameObject.CompareTag(tagAgainst))
         {
             InCollision = true;
+            JustCollided = true;
+            nbFrameJustCollidedWait = 2;
             CollidingObject = collision.gameObject;
         }
     }

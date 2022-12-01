@@ -12,16 +12,4 @@ public class OsuNotePool : NotePool
     {
         obj.transform.localScale = Util.LerpUnclamped(startScale, timeScale, interpol);
     }
-
-    public override void DisplayInput(InputSystem.Inputs input)
-    {
-        if (input.Active)
-        {
-            spawnPos.GetChild(0).GetComponent<Renderer>().material = tmpActiveMaterial;
-        }
-        else
-        {
-            spawnPos.GetChild(0).GetComponent<Renderer>().material = tmpNotMaterial;
-        }
-    }
 }
