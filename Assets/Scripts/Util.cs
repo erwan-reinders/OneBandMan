@@ -46,4 +46,9 @@ public static class Util
     {
         return a + (b - a) * inter;
     }
+
+    public static bool SameTime(float timeA, float timeB)
+    {
+        return Mathf.Abs(timeA - timeB) < 0.016f;
+    }
 }

@@ -81,7 +81,7 @@ public class SongSettings
     }
 
     [Serializable]
-    public class SongNote
+    public abstract class SongNote
     {
         public double beat;
 
@@ -101,6 +101,23 @@ public class SongSettings
         public override Note Construct(SongChanelManager songChanelManager)
         {
             return new SimpleNote(beat, songChanelManager);
+        }
+    }
+
+    [Serializable]
+    public class SongHideChannel : SongNote
+    {
+        public override Note Construct(SongChanelManager songChanelManager)
+        {
+            return new HideChannel(beat, songChanelManager);
+        }
+    }
+    [Serializable]
+    public class SongShowChannel : SongNote
+    {
+        public override Note Construct(SongChanelManager songChanelManager)
+        {
+            return new ShowChannel(beat, songChanelManager);
         }
     }
 }

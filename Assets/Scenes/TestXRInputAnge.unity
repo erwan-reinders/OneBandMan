@@ -421,6 +421,7 @@ MonoBehaviour:
   chanels:
   - {fileID: 419948824}
   - {fileID: 666729522}
+  - {fileID: 1093638207}
 --- !u!114 &66375811
 MonoBehaviour:
   m_ObjectHideFlags: 0

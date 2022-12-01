@@ -128,6 +128,26 @@
           "beat": 12.0
         }
       ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongHideChannel, Assembly-CSharp",
+          "beat": 4.0
+        },
+        {
+          "$type": "SongSettings+SongShowChannel, Assembly-CSharp",
+          "beat": 8.0
+        },
+        {
+          "$type": "SongSettings+SongHideChannel, Assembly-CSharp",
+          "beat": 12.0
+        },
+        {
+          "$type": "SongSettings+SongShowChannel, Assembly-CSharp",
+          "beat": 16.0
+        }
+      ]
     }
   ]
 }
