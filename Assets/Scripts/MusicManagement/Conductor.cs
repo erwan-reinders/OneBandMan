@@ -65,8 +65,12 @@ public class Conductor : MonoBehaviour
             musicSource.Play();
 
             musicPlaying = true;
-        }
 
+            songPosition = 0;
+            songPositionUI = 0;
+            songPositionInBeats = 0;
+            songPositionInBeatsUI = 0;
+        }
     }
 
     public double TimeToBeat(double time)
@@ -87,5 +91,10 @@ public class Conductor : MonoBehaviour
         //determine how many beats since the song started
         songPositionInBeats = (float)(songPosition * invSecPerBeat);
         songPositionInBeatsUI = (float)(songPositionUI * invSecPerBeat);
+
+        if (!musicSource.isPlaying)
+        {
+            musicPlaying = false;
+        }
     }
 }

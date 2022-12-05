@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArmLengthSizeUpdater : GrabableObject
 {
+    //TODO list d'input ayant une taille de bras...
     public TromboneInput tromboneInput;
     public ViolonInput violinInput;
 

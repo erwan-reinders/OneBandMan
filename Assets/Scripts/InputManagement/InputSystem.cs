@@ -34,5 +34,6 @@ public static class InputSystem
         public bool Pressed;
         public bool Released;
         public float Volume;
+        public string Type;
     }
 }

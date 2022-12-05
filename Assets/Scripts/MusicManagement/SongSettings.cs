@@ -46,6 +46,13 @@ public class SongSettings
             chanel1.notes.Add(new SongSimpleNote(i + 4));
         }
         songChanels.Add(chanel1);
+
+        SongChanel chanel2 = new SongChanel();
+        for (int i = 1; i < 5; i++)
+        {
+            chanel2.notes.Add(new SongHideChannel(i * 4));
+        }
+        songChanels.Add(chanel2);
     }
 
     private static JsonSerializerSettings GetSettings()
@@ -105,6 +112,15 @@ public class SongSettings
     }
 
     [Serializable]
+    public class SongGuitarStrumNote : SongNote
+    {
+        public override Note Construct(SongChanelManager songChanelManager)
+        {
+            return new GuitarStrumNote(beat, songChanelManager);
+        }
+    }
+
+    [Serializable]
     public class SongSoundNote : SongNote
     {
         public string sound;
@@ -122,6 +138,10 @@ public class SongSettings
     [Serializable]
     public class SongHideChannel : SongNote
     {
+        public SongHideChannel(double beat)
+        {
+            this.beat = beat;
+        }
         public override Note Construct(SongChanelManager songChanelManager)
         {
             return new HideChannel(beat, songChanelManager);

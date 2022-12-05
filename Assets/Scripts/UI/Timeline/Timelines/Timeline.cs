@@ -22,31 +22,33 @@ public class Timeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        double eps = 1.0d / AudioSettings.outputSampleRate;
-        int iter = 0;
-        bool condition;
-        do
+        if (Conductor.Instance.musicPlaying)
         {
-            double loopPosition = Conductor.Instance.songPositionInBeats - loopCounter * loopDuration;
-            condition = currentEvent.beat - loopPosition < eps;
-
-            if (condition)
+            double eps = 1.0d / AudioSettings.outputSampleRate;
+            int iter = 0;
+            bool condition;
+            do
             {
-                currentEvent.OnActivate(gameObject);
-                currentEventId++;
-                if (currentEventId >= timelineObject.transform.childCount)
-                {
-                    currentEventId = 0;
-                    loopCounter++;
-                    if (!loop)
-                    {
-                        enabled = false;
-                    }
-                }
-                currentEvent = timelineObject.transform.GetChild(currentEventId).GetComponent<BeatEvent>();
-            }
-            iter++;
-        } while (condition && iter < maxEventAtOnce);
+                double loopPosition = Conductor.Instance.songPositionInBeats - loopCounter * loopDuration;
+                condition = currentEvent.beat - loopPosition < eps;
 
+                if (condition)
+                {
+                    currentEvent.OnActivate(gameObject);
+                    currentEventId++;
+                    if (currentEventId >= timelineObject.transform.childCount)
+                    {
+                        currentEventId = 0;
+                        loopCounter++;
+                        if (!loop)
+                        {
+                            enabled = false;
+                        }
+                    }
+                    currentEvent = timelineObject.transform.GetChild(currentEventId).GetComponent<BeatEvent>();
+                }
+                iter++;
+            } while (condition && iter < maxEventAtOnce);
+        } 
     }
 }

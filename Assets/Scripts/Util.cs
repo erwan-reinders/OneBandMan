@@ -36,17 +36,6 @@ public static class Util
         }
     }
 
-
-    public static Vector3 LerpUnclamped(Vector3 a, Vector3 b, float inter)
-    {
-        return a + (b - a) * inter;
-    }
-
-    public static float LerpUnclamped(float a, float b, float inter)
-    {
-        return a + (b - a) * inter;
-    }
-
     public static bool SameTime(float timeA, float timeB)
     {
         return Mathf.Abs(timeA - timeB) < 0.016f;

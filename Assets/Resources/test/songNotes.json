@@ -1,0 +1,162 @@
+{
+  "BPM": 120.0,
+  "songChanels": [
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 4.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 5.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 6.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 7.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 8.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 9.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 9.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 10.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 10.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 11.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 12.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 13.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 14.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 15.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 16.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 16.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 17.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 17.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 18.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 19.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 20.0
+        }
+      ]
+    },
+    {
+      "notes": [
+        {
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 4.0,
+            "sound":  "testSound"
+        },
+        {
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 5.0,
+            "sound": ""
+        },
+        {
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 6.0,
+            "sound": ""
+        },
+        {
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 7.0,
+            "sound": ""
+        },
+        {
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 8.0,
+            "sound": "testSound"
+        },
+        {
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 9.0,
+            "sound": ""
+        },
+        {
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 10.0,
+            "sound": ""
+        },
+        {
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 11.0,
+            "sound": ""
+        },
+        {
+            "$type": "SongSettings+SongSoundNote, Assembly-CSharp",
+            "beat": 12.0,
+            "sound": "testSound"
+        }
+      ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongHideChannel, Assembly-CSharp",
+          "beat": 4.0
+        },
+        {
+          "$type": "SongSettings+SongShowChannel, Assembly-CSharp",
+          "beat": 8.0
+        },
+        {
+          "$type": "SongSettings+SongHideChannel, Assembly-CSharp",
+          "beat": 12.0
+        },
+        {
+          "$type": "SongSettings+SongShowChannel, Assembly-CSharp",
+          "beat": 16.0
+        }
+      ]
+    }
+  ]
+}

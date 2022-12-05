@@ -9,7 +9,7 @@ public class SongManager : MonoBehaviour
 
     public static string GetSongPathFromName(string songName)
     {
-        return Application.dataPath + "/Songs/" + songName;
+        return Application.dataPath + "/Resources/" + songName;
     }
 
     public static void SaveSongToJSON(string songName, SongSettings songSettings)
@@ -36,27 +36,19 @@ public class SongManager : MonoBehaviour
 
     public static SongSettings LoadSongFromJSON(string songName)
     {
-        string path = GetSongPathFromName(songName) + "/songNotes.json";
-        FileStream file;
-        if (File.Exists(path))
+        string path = songName + "/songNotes";
+        TextAsset file = Resources.Load<TextAsset>(path);
+        if (file == null)
         {
-            file = File.OpenRead(path);
+            Debug.LogError("Error : " + songName + " does not exists ("+ GetSongPathFromName(songName)+ " does not contain a \"songNotes.json\" file)");
+            return SongSettings.LoadFromJSON("");
         }
-        else
-        {
-            Debug.LogError("Error : " + songName + " does not exists (" + path+")");
-            return null;
-        }
+        return SongSettings.LoadFromJSON(file.text);
+    }
 
-        byte[] b = new byte[1024];
-        int readLen;
-        StringBuilder stringBuilder = new StringBuilder();
-        while ((readLen = file.Read(b, 0, b.Length)) > 0)
-        {
-            stringBuilder.Append(Encoding.ASCII.GetString(b, 0, readLen));
-        }
-
-        return SongSettings.LoadFromJSON(stringBuilder.ToString());
+    public static AudioClip GetSong(string songName)
+    {
+        return Resources.Load<AudioClip>(songName + "/song");
     }
 
     private void Start()
@@ -81,6 +73,8 @@ public class SongManager : MonoBehaviour
                 }
                 channel.SetNotes(notes);
             }
+
+            Conductor.Instance.musicSource.clip = GetSong(songName);
         }
 
 

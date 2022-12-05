@@ -5,7 +5,7 @@ public class SongChanelManager : MonoBehaviour
 {
     public string inputName;
     public double beatInAdvance = 2.0d;
-    public NotePool pool;
+    public NoteDisplayer displayer;
     public AudioSource audioSource;
     public AudioClip hitSound;
     [SerializeField]
@@ -52,14 +52,14 @@ public class SongChanelManager : MonoBehaviour
             Note note = instancedNotes[n];
             if (press)
             {
-                if (note.OnPlayPress())
+                if (note.OnPlayPress(input))
                 {
                     press = false;
                 }
             }
             if (release)
             {
-                if (note.OnPlayRelease())
+                if (note.OnPlayRelease(input))
                 {
                     release = false;
                 }
