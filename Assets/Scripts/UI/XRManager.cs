@@ -58,7 +58,7 @@ public class XRManager : MonoBehaviour
 
     public static void RotateCameraRight()
     {
-        instance.XRRig.transform.Rotate(Vector3.down, instance.cameraAngleIncrements);
+        instance.XRRig.transform.Rotate(Vector3.up, instance.cameraAngleIncrements);
     }
 
     public static void RotateCameraLeft()
