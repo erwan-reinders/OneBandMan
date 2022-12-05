@@ -1,28 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class NotePool : MonoBehaviour
+public class NotePool : MonoBehaviour
 {
     public int poolNb;
-
-    public Transform spawnPos;
-
-    public GameObject pool;
     public GameObject objectPrefab;
 
-    private int poolId;
+    protected int poolId;
 
-    private void Start()
+    void Start()
     {
+        if (transform.childCount > 0)
+        {
+            Debug.LogError("Error : a NotePool must not have children !");
+        }
         for (int i = 0; i < poolNb; i++)
         {
-            GameObject obj = Instantiate(objectPrefab, spawnPos.position, Quaternion.identity, pool.transform);
+            GameObject obj = Instantiate(objectPrefab, transform);
             obj.SetActive(false);
         }
     }
 
     public GameObject SpawnNewNote()
     {
-        GameObject obj = pool.transform.GetChild(poolId).gameObject;
+        GameObject obj = transform.GetChild(poolId).gameObject;
         if (obj.activeSelf)
         {
             Debug.LogWarning("Warning : not enough object instanciated");
@@ -37,6 +39,4 @@ public abstract class NotePool : MonoBehaviour
     {
         obj.SetActive(false);
     }
-
-    public abstract void UpdateNote(GameObject obj, float interpol);
 }

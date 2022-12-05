@@ -16,12 +16,12 @@ public class ShowChannel : Note
         this.songChanelManager = songChanelManager;
     }
 
-    public bool OnPlayPress()
+    public bool OnPlayPress(InputSystem.Inputs input)
     {
         //Nothing
         return false;
     }
-    public bool OnPlayRelease()
+    public bool OnPlayRelease(InputSystem.Inputs input)
     { 
         //Nothing
         return false;
@@ -45,7 +45,7 @@ public class ShowChannel : Note
 
         if (Util.SameTime(Conductor.Instance.songPosition, (float)time))
         {
-            songChanelManager.pool.gameObject.SetActive(true);
+            songChanelManager.displayer.gameObject.SetActive(true);
         }
     }
 }

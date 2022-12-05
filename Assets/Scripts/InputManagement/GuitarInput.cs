@@ -28,7 +28,6 @@ public class GuitarInput : InputManager
     private List<InputDevice> inputControllers;
     private List<InputFeatureUsage<bool>> inputFeatures;
 
-    private bool wasInCollision;
     private Vector3 previousRightHandPos;
 
 
@@ -50,7 +49,9 @@ public class GuitarInput : InputManager
 
         for (int i = 1; i < channelNames.Length; i++)
         {
-            Instantiate(cursorSeparatorPrefab, Vector3.Lerp(cursorStart.position, cursorEnd.position, i / (float)channelNames.Length), Quaternion.identity, cursorSeparatorParent);
+            GameObject obj = Instantiate(cursorSeparatorPrefab, cursorSeparatorParent);
+            obj.transform.position = Vector3.Lerp(cursorStart.position, cursorEnd.position, i / (float)channelNames.Length);
+            obj.transform.localEulerAngles = Vector3.zero;
         }
     }
 
@@ -104,13 +105,11 @@ public class GuitarInput : InputManager
 
         bool picking = inCollision && CheckDeviceInput();
 
-        bool strumming = !wasInCollision && inCollision;
+        bool strumming = inCollision;
         float playSpeed = 0f;
         if (strumming)
         {
-            Vector3 playDirection = Vector3.Normalize(stringCollider.transform.position - rightHand.position);
-            Vector3 playMovement = rightHand.position - previousRightHandPos;
-            playSpeed = Mathf.Abs(Vector3.Dot(playMovement, playDirection));
+            playSpeed = Vector3.Distance(rightHand.position, previousRightHandPos);
             strumming = playSpeed > minSpeed;
         }
 
@@ -138,7 +137,6 @@ public class GuitarInput : InputManager
         }
 
         previousRightHandPos = rightHand.position;
-        wasInCollision = inCollision;
 
         cursor.position = Vector3.Lerp(cursorStart.position, cursorEnd.position, leftHandDistance);
     }

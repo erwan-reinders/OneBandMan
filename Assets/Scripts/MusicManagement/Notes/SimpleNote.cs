@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SimpleNote : Note
 {
+    public int poolID;
+
     protected double time;
     public double Time { get => time; }
     public double Beat { get; }
@@ -11,13 +13,16 @@ public class SimpleNote : Note
     protected SongChanelManager songChanelManager;
     protected GameObject note;
 
-    public SimpleNote(double beat, SongChanelManager songChanelManager)
+    public SimpleNote(double beat, SongChanelManager songChanelManager, int poolID)
     {
         Beat = beat;
         this.songChanelManager = songChanelManager;
+        this.poolID = poolID;
     }
+    public SimpleNote(double beat, SongChanelManager songChanelManager) : this(beat, songChanelManager, 0) { }
 
-    public bool OnPlayPress()
+
+    public virtual bool OnPlayPress(InputSystem.Inputs input)
     {
         // Evaluate timing
         double timing = Conductor.Instance.songPosition - time;
@@ -31,7 +36,7 @@ public class SimpleNote : Note
         }
         return false;
     }
-    public bool OnPlayRelease()
+    public bool OnPlayRelease(InputSystem.Inputs input)
     {
         //Nothing
         return false;
@@ -40,7 +45,7 @@ public class SimpleNote : Note
     public void Start()
     {
         time = Conductor.Instance.BeatToTime(Beat);
-        note = songChanelManager.pool.SpawnNewNote();
+        note = NotePoolManager.instance.pools[poolID].SpawnNewNote();
 
         isPlaying = true;
     }
@@ -52,7 +57,7 @@ public class SimpleNote : Note
         float currentBeat = Conductor.Instance.songPositionInBeatsUI;
         float interpol = (currentBeat - startBeat) / ((float)Beat - startBeat);
 
-        songChanelManager.pool.UpdateNote(note, interpol);
+        songChanelManager.displayer.UpdateNote(note, interpol);
 
         if (Conductor.Instance.songPosition > time + timingLate)
         {
@@ -64,7 +69,7 @@ public class SimpleNote : Note
     {
         //Todo play effects
 
-        songChanelManager.pool.DeleteNote(note);
+        NotePoolManager.instance.pools[poolID].DeleteNote(note);
 
         isPlaying = false;
     }

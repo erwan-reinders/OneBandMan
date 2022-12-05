@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SoundNote : SimpleNote
 {
+
     private string soundName;
     private AudioClip soundClip;
 
@@ -27,7 +28,7 @@ public class SoundNote : SimpleNote
             }
         }
 
-        songChanelManager.pool.DeleteNote(note);
+        NotePoolManager.instance.pools[poolID].DeleteNote(note);
 
         isPlaying = false;
 

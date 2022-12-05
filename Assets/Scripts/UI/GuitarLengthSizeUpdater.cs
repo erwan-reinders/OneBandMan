@@ -18,9 +18,9 @@ public class GuitarLengthSizeUpdater : GrabableObject
         if (isGrabed)
         {
             float length = Vector3.Distance(transform.position, handHandle.transform.position);
-            guitarInput.armLength = length;
+            guitarInput.armLength = length - guitarInput.minDistance;
 
-            transform.localScale = Vector3.one * (2 * guitarInput.armLength);
+            transform.localScale = Vector3.one * (2 * length);
 
             if (CheckDeviceInput())
             {
