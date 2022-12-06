@@ -6,6 +6,7 @@ public class SongChanelManager : MonoBehaviour
     public string inputName;
     public double beatInAdvance = 2.0d;
     public NoteDisplayer displayer;
+    public int defaultPoolId = 0;
     public AudioSource audioSource;
     public AudioClip hitSound;
     [SerializeField]

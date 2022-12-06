@@ -256,6 +256,18 @@
           "beat": 20.0
         }
       ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 19.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 20.0
+        }
+      ]
     }
   ]
 }

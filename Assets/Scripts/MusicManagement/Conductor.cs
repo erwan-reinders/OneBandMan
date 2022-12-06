@@ -25,6 +25,7 @@ public class Conductor : MonoBehaviour
     public double songStartTime;
     //How many seconds of offset in the music
     public double songOffset;
+    public double testStartOffset;
 
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;
@@ -47,7 +48,7 @@ public class Conductor : MonoBehaviour
         invSecPerBeat = 1d / secPerBeat;
 
         //Record the time when the music starts
-        songStartTime = AudioSettings.dspTime;
+        songStartTime = AudioSettings.dspTime - testStartOffset;
     }
 
     public void Play()
@@ -59,9 +60,10 @@ public class Conductor : MonoBehaviour
             invSecPerBeat = 1d / secPerBeat;
 
             //Record the time when the music starts
-            songStartTime = AudioSettings.dspTime;
+            songStartTime = AudioSettings.dspTime - testStartOffset;
 
             //Start the music
+            musicSource.time = (float)testStartOffset;
             musicSource.Play();
 
             musicPlaying = true;

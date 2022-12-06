@@ -17,7 +17,7 @@ public class NotePool : MonoBehaviour
         }
         for (int i = 0; i < poolNb; i++)
         {
-            GameObject obj = Instantiate(objectPrefab, transform);
+            GameObject obj = Instantiate(objectPrefab, transform.position, objectPrefab.transform.rotation, transform);
             obj.SetActive(false);
         }
     }

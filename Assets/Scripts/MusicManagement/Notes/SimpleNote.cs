@@ -19,7 +19,7 @@ public class SimpleNote : Note
         this.songChanelManager = songChanelManager;
         this.poolID = poolID;
     }
-    public SimpleNote(double beat, SongChanelManager songChanelManager) : this(beat, songChanelManager, 0) { }
+    public SimpleNote(double beat, SongChanelManager songChanelManager) : this(beat, songChanelManager, songChanelManager.defaultPoolId) {  }
 
 
     public virtual bool OnPlayPress(InputSystem.Inputs input)
