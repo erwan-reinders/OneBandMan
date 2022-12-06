@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SongChanelManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class SongChanelManager : MonoBehaviour
     public int defaultPoolId = 0;
     public AudioSource audioSource;
     public AudioClip hitSound;
+
+    public UnityEvent onHideInstrument;
+    public UnityEvent onShowInstrument;
+
     [SerializeField]
     public TimingEvaluator timingEvaluator;
 

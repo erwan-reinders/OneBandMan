@@ -16,6 +16,16 @@
           "beat": 12.0
         },
         {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 18.5,
+          "visible": false
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 20.0,
+          "visible": true
+        },
+        {
           "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
           "beat": 25.0
         },
@@ -248,12 +258,27 @@
     {
       "notes": [
         {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 0.0,
+          "visible": false
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 18.0,
+          "visible": true
+        },
+        {
           "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
           "beat": 19.0
         },
         {
           "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
           "beat": 20.0
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 20.5,
+          "visible": false
         }
       ]
     },

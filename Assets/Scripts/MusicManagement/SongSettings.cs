@@ -155,4 +155,14 @@ public class SongSettings
             return new ShowChannel(beat, songChanelManager);
         }
     }
+
+    [Serializable]
+    public class SongInstrumentVisibility: SongNote
+    {
+        public bool visible;
+        public override Note Construct(SongChanelManager songChanelManager)
+        {
+            return new InstrumentVisibility(beat, songChanelManager, visible);
+        }
+    }
 }
