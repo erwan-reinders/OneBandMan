@@ -11,8 +11,11 @@ public class SongChanelManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip hitSound;
 
+    public UnityEvent onWarnHideInstrument;
+    public UnityEvent onWarnShowInstrument;
     public UnityEvent onHideInstrument;
     public UnityEvent onShowInstrument;
+    public UnityEvent onEndSong;
 
     [SerializeField]
     public TimingEvaluator timingEvaluator;

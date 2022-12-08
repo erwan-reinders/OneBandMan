@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InstrumentVisibility : Note
+public class EndSong : Note
 {
     private double time;
     public double Time { get => time; }
@@ -9,13 +9,11 @@ public class InstrumentVisibility : Note
     public bool IsPlaying { get => isPlaying; }
 
     private SongChanelManager songChanelManager;
-    private bool visible;
 
-    public InstrumentVisibility(double beat, SongChanelManager songChanelManager, bool visible)
+    public EndSong(double beat, SongChanelManager songChanelManager)
     {
         Beat = beat;
         this.songChanelManager = songChanelManager;
-        this.visible = visible;
     }
 
     public bool OnPlayPress(InputSystem.Inputs input)
@@ -34,28 +32,12 @@ public class InstrumentVisibility : Note
         time = Conductor.Instance.BeatToTime(Beat);
 
         isPlaying = true;
-
-        if (visible)
-        {
-            songChanelManager.onWarnShowInstrument.Invoke();
-        }
-        else
-        {
-            songChanelManager.onWarnHideInstrument.Invoke();
-        }
     }
     public void Update()
     {
         if (Util.SameTime(Conductor.Instance.songPosition, (float)time))
         {
-            if (visible)
-            {
-                songChanelManager.onShowInstrument.Invoke();
-            }
-            else
-            {
-                songChanelManager.onHideInstrument.Invoke();
-            }
+            songChanelManager.onEndSong.Invoke();
         }
     }
 }

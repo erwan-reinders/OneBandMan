@@ -61,8 +61,8 @@ public class CubeButton : MonoBehaviour
         }
         else
         {
-            progressBar.fillAmount = currentActivatedTime / timeToActivate;
             activated = false;
         }
+        progressBar.fillAmount = currentActivatedTime / timeToActivate;
     }
 }

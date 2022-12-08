@@ -75,6 +75,18 @@ public class Conductor : MonoBehaviour
         }
     }
 
+    public void Stop(bool stopSong)
+    {
+        if (musicPlaying)
+        {
+            if (stopSong)
+            {
+                musicSource.Stop();
+            }
+            musicPlaying = false;
+        }
+    }
+
     public double TimeToBeat(double time)
     {
         return (time - songStartTime - songOffset) * invSecPerBeat;

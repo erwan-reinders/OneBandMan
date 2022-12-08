@@ -165,4 +165,13 @@ public class SongSettings
             return new InstrumentVisibility(beat, songChanelManager, visible);
         }
     }
+
+    [Serializable]
+    public class SongEndSong : SongNote
+    {
+        public override Note Construct(SongChanelManager songChanelManager)
+        {
+            return new EndSong(beat, songChanelManager);
+        }
+    }
 }

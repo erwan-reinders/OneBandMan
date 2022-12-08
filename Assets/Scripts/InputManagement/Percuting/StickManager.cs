@@ -13,10 +13,12 @@ public class StickManager : MonoBehaviour
     private Vector3 previousPos;
     private Renderer diplay;
     private int nbFrameJustCollidedWait;
+    private Collider colliderobj;
 
     private void Start()
     {
         diplay = GetComponent<Renderer>();
+        colliderobj = GetComponent<Collider>();
     }
 
     private void Update()
@@ -39,11 +41,16 @@ public class StickManager : MonoBehaviour
         {
             diplay.enabled = true;
         }
+        if (colliderobj != null)
+        {
+            colliderobj.enabled = true;
+        }
     }
 
     private void OnDisable()
     {
         diplay.enabled = false;
+        colliderobj.enabled = false;
         InCollision = false;
         CollidingObject = null;
     }

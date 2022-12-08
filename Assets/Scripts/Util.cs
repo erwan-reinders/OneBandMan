@@ -40,4 +40,14 @@ public static class Util
     {
         return Mathf.Abs(timeA - timeB) < 0.016f;
     }
+
+    public static string FormatInt(string text)
+    {
+        int textLength = text.Length;
+        for (int i = 3; i < textLength; i += 3)
+        {
+            text = text.Insert(textLength - i, " ");
+        }
+        return text;
+    }
 }

@@ -69,6 +69,8 @@ public class SimpleNote : Note
     {
         //Todo play effects
 
+        ScoreManager.instance.ComputeScore(timingWindow);
+
         NotePoolManager.instance.pools[poolID].DeleteNote(note);
 
         isPlaying = false;

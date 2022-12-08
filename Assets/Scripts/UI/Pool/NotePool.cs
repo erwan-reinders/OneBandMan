@@ -27,7 +27,7 @@ public class NotePool : MonoBehaviour
         GameObject obj = transform.GetChild(poolId).gameObject;
         if (obj.activeSelf)
         {
-            Debug.LogWarning("Warning : not enough object instanciated");
+            Debug.LogWarning("Warning : not enough object instanciated ("+obj.name+", "+gameObject.name+", "+Conductor.Instance.songPositionInBeats+")");
         }
         obj.SetActive(true);
 

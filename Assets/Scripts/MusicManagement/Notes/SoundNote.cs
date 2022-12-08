@@ -28,6 +28,7 @@ public class SoundNote : SimpleNote
             }
         }
 
+        ScoreManager.instance.ComputeScore(timingWindow);
         NotePoolManager.instance.pools[poolID].DeleteNote(note);
 
         isPlaying = false;
