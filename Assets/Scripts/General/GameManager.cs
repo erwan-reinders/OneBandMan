@@ -42,6 +42,6 @@ public class GameManager : MonoBehaviour
 
     public static void Quit()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 }

@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 1612624420}
-  startScale: {x: 5, y: 1, z: 5}
+  startScale: {x: 10, y: 1, z: 10}
   timeScale: {x: 0.56, y: 1, z: 0.56}
   tmpNotMaterial: {fileID: 2100000, guid: 3402cffc10808b148b739f0ac8f70ede, type: 2}
   tmpActiveMaterial: {fileID: 2100000, guid: 1be9c543d82cad147a4da94e66195876, type: 2}
@@ -14031,7 +14031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 47983488}
-  startScale: {x: 5, y: 1, z: 5}
+  startScale: {x: 10, y: 1, z: 10}
   timeScale: {x: 0.48, y: 1, z: 0.48}
   tmpNotMaterial: {fileID: 2100000, guid: 3402cffc10808b148b739f0ac8f70ede, type: 2}
   tmpActiveMaterial: {fileID: 2100000, guid: 1be9c543d82cad147a4da94e66195876, type: 2}
@@ -17085,7 +17085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27408adff7915140b552b6af903da00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songName: "Ta mere dans le d\xE9sert"
+  songName: Ta mere dans le desert
   chanels:
   - {fileID: 1974482875}
   - {fileID: 5796449011306742048}

@@ -103,7 +103,7 @@ public class GuitarInput : InputManager
 
         bool inCollision = Vector3.Distance(rightHand.position, stringCollider.ClosestPoint(rightHand.position)) < 0.01f;
 
-        bool picking = inCollision && CheckDeviceInput();
+        bool picking = CheckDeviceInput();
 
         bool strumming = inCollision;
         float playSpeed = 0f;

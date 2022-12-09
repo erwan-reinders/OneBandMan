@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShowLevelsInMenu : MonoBehaviour
 {
+    public MainMenuManager menuManager;
     public GameObject menuParent;
     public MenuItemManager menuItemPrefab;
 
@@ -33,5 +34,6 @@ public class ShowLevelsInMenu : MonoBehaviour
     {
         MenuItemManager item = Instantiate(menuItemPrefab, menuParent.transform);
         item.levelName.text = info.Name;
+        item.menuManager = menuManager;
     }
 }
