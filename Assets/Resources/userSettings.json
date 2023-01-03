@@ -1,0 +1,43 @@
+{
+  "canPause": true,
+  "globalVolume": 1.0,
+  "musicVolume": 0.5,
+  "soundVolume": 1.0,
+  "instrumentSettings": {
+    "Trombone": {
+      "latency": 0,
+      "originX": -0.08,
+      "originY": -0.2,
+      "originZ": 0.15,
+      "length": 0.3
+    },
+    "Maracas": {
+      "latency": 0,
+      "originX": 0.0,
+      "originY": 0.0,
+      "originZ": 0.0,
+      "length": 0.0
+    },
+    "Drum": {
+      "latency": 0,
+      "originX": 0.0,
+      "originY": 0.0,
+      "originZ": 0.0,
+      "length": 0.0
+    },
+    "Violin": {
+      "latency": 0,
+      "originX": -0.08,
+      "originY": -0.2,
+      "originZ": 0.15,
+      "length": 0.3
+    },
+    "Guitar": {
+      "latency": 0,
+      "originX": 0.06655884,
+      "originY": -0.294502258,
+      "originZ": 0.101745605,
+      "length": 0.4
+    }
+  }
+}

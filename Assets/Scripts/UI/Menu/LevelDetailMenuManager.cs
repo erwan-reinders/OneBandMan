@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.IO;
 
 public class LevelDetailMenuManager : MonoBehaviour
 {
@@ -26,6 +28,8 @@ public class LevelDetailMenuManager : MonoBehaviour
         else
         {
             SongParameters songParameters = SongParameters.LoadFromJSON(file.text);
+            Resources.UnloadAsset(file);
+
             description = songParameters.description;
             bpm = "BPM : " + songParameters.BPM.ToString();
         }
@@ -40,9 +44,10 @@ public class LevelDetailMenuManager : MonoBehaviour
         songDescriptionText.text = description;
         songBPMText.text = bpm;
 
-        detailGoButton.interactable = true;
+        detailGoButton.interactable = File.Exists(Application.dataPath + "/Scenes/" + songName + ".unity");
 
         source.clip = SongManager.GetSong(songName);
+        source.Play();
     }
 
     public void ToggleAudio()

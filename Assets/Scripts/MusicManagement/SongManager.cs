@@ -17,21 +17,21 @@ public class SongManager : MonoBehaviour
         string path = GetSongPathFromName(songName);
         string filePath = path + "/songNotes.json";
         FileStream file;
-        if (File.Exists(filePath))
+        if (File.Exists(path))
         {
-            file = File.OpenWrite(filePath);
+            File.Delete(path);
+            File.Delete(path+".meta");
         }
-        else
+
+        if (!Directory.Exists(path))
         {
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            file = File.Create(filePath);
+            Directory.CreateDirectory(path);
         }
+        file = File.Create(filePath);
 
         string json = SongSettings.SaveToJSON(songSettings);
         file.Write(Encoding.ASCII.GetBytes(json));
+        file.Close();
     }
 
     public static SongSettings LoadSongFromJSON(string songName)
@@ -41,8 +41,10 @@ public class SongManager : MonoBehaviour
         if (file == null)
         {
             Debug.LogError("Error : " + songName + " does not exists ("+ GetSongPathFromName(songName)+ " does not contain a \"songNotes.json\" file)");
+            Resources.UnloadAsset(file);
             return SongSettings.LoadFromJSON("");
         }
+        Resources.UnloadAsset(file);
         return SongSettings.LoadFromJSON(file.text);
     }
 

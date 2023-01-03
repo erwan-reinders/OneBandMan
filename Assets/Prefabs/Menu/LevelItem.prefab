@@ -393,6 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuManager: {fileID: 0}
   levelName: {fileID: 1581252509782870490}
+  goButton: {fileID: 1581252511234326276}
 --- !u!114 &4766074681118386672
 MonoBehaviour:
   m_ObjectHideFlags: 0

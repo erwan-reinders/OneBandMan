@@ -67,7 +67,7 @@ public class SimpleNote : Note
 
     protected virtual void OnAction(int timingWindow)
     {
-        //Todo play effects
+        EffectManager.instance.PlayEffect(timingWindow);
 
         ScoreManager.instance.ComputeScore(timingWindow);
 

@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     public LevelDetailMenuManager detailManager;
+    public LevelScoreMenuManager scoreManager;
 
     private string currentLevelName = "";
 
@@ -21,6 +22,7 @@ public class MainMenuManager : MonoBehaviour
         currentLevelName = songName;
 
         detailManager.LoadSongInfo(songName);
+        scoreManager.LoadSongInfo(songName);
     }
 
     public void LoadLevel()
@@ -29,5 +31,10 @@ public class MainMenuManager : MonoBehaviour
         {
             SceneManager.LoadScene(currentLevelName);
         }
+    }
+
+    public void ReloadScore()
+    {
+        scoreManager.LoadSongInfo(currentLevelName);
     }
 }

@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     private uint scoreCount;
     private uint hitCount;
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {

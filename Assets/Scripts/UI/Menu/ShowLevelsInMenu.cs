@@ -35,5 +35,6 @@ public class ShowLevelsInMenu : MonoBehaviour
         MenuItemManager item = Instantiate(menuItemPrefab, menuParent.transform);
         item.levelName.text = info.Name;
         item.menuManager = menuManager;
+        item.Init();
     }
 }

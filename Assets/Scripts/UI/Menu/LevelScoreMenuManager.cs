@@ -10,6 +10,26 @@ public class LevelScoreMenuManager : MonoBehaviour
 
     public void LoadSongInfo(string songName)
     {
+        /*        SongScores tmpScores = new SongScores();
+                SongScores.SongScore tmpScore = new SongScores.SongScore();
+                tmpScore.time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                tmpScore.score = 123456789;
+                tmpScore.combo = 1234;
+                tmpScore.acuracy = 0.96f;
+                tmpScores.scores = new List<SongScores.SongScore>();
+                tmpScores.scores.Add(tmpScore);
+                tmpScores.scores.Add(tmpScore);
+
+                Debug.Log("saving json : " + songName);
+                SongScores.SaveSongToJSON(songName, tmpScores);*/
+
+
+
+        for (int i = scoresParent.transform.childCount - 1; i >= 0; --i)
+        {
+            Destroy(scoresParent.transform.GetChild(i).gameObject);
+        }
+
         string path = songName + "/scores";
         TextAsset file = Resources.Load<TextAsset>(path);
         if (file == null)
@@ -19,12 +39,14 @@ public class LevelScoreMenuManager : MonoBehaviour
         else
         {
             SongScores songScores = SongScores.LoadFromJSON(file.text);
+            Resources.UnloadAsset(file);
+
             foreach (SongScores.SongScore score in songScores.scores)
             {
                 ScoreItemManager scoreItem = Instantiate(scorePrefab, scoresParent.transform);
 
-                scoreItem.scoreText.text = score.score.ToString();
-                scoreItem.acuracyComboText.text = score.acuracy + " | " + score.combo;
+                scoreItem.scoreText.text = Util.FormatInt(score.score.ToString());
+                scoreItem.acuracyComboText.text = score.acuracy + " | " + Util.FormatInt(score.combo.ToString());
 
                 DateTimeOffset scoreTime = DateTimeOffset.FromUnixTimeMilliseconds(score.time);
                 DateTimeOffset nowTime = DateTimeOffset.Now;
