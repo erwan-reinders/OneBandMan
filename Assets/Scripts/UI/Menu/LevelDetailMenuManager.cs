@@ -15,20 +15,26 @@ public class LevelDetailMenuManager : MonoBehaviour
     public TextMeshProUGUI buttonMuteText;
     public Button detailGoButton;
 
+    private AudioClip defaultClip;
+
+    void Start()
+    {
+        defaultClip = source.clip;
+    }
+
     public void LoadSongInfo(string songName)
     {
-        string path = songName + "/songParameters";
-        TextAsset file = Resources.Load<TextAsset>(path);
+        string path = Util.GetSongPath(songName) + "/songParameters.json";
+        string text = Util.ReadFile(path);
         string description = "";
         string bpm = "";
-        if (file == null)
+        if (text.Equals(""))
         {
             Debug.LogWarning("Error : song parameters does not exist (path=" + path + ")");
         }
         else
         {
-            SongParameters songParameters = SongParameters.LoadFromJSON(file.text);
-            Resources.UnloadAsset(file);
+            SongParameters songParameters = SongParameters.LoadFromJSON(text);
 
             description = songParameters.description;
             bpm = "BPM : " + songParameters.BPM.ToString();
@@ -44,9 +50,9 @@ public class LevelDetailMenuManager : MonoBehaviour
         songDescriptionText.text = description;
         songBPMText.text = bpm;
 
-        detailGoButton.interactable = File.Exists(Application.dataPath + "/Scenes/" + songName + ".unity");
+        source.clip = Resources.Load<AudioClip>(songName);
+        detailGoButton.interactable = true;
 
-        source.clip = SongManager.GetSong(songName);
         source.Play();
     }
 
@@ -61,6 +67,15 @@ public class LevelDetailMenuManager : MonoBehaviour
         {
             source.Play();
             buttonMuteText.text = "Mute";
+        }
+    }
+
+    public void UnloadAudio()
+    {
+        if (source.clip != defaultClip)
+        {
+            source.clip = defaultClip;
+            source.Play();
         }
     }
 }

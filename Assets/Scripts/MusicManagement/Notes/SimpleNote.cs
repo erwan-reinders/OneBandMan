@@ -30,8 +30,7 @@ public class SimpleNote : Note
 
         if (timingWindow >= 0)
         {
-            Debug.Log(timing + " : " + timingWindow);
-            OnAction(timingWindow);
+            OnAction(timingWindow, timing);
             return true;
         }
         return false;
@@ -61,13 +60,13 @@ public class SimpleNote : Note
 
         if (Conductor.Instance.songPosition > time + timingLate)
         {
-            OnAction(-1);
+            OnAction(-1, 0);
         }
     }
 
-    protected virtual void OnAction(int timingWindow)
+    protected virtual void OnAction(int timingWindow, double timing)
     {
-        EffectManager.instance.PlayEffect(timingWindow);
+        EffectManager.instance.PlayEffect(timingWindow, timing / songChanelManager.timingEvaluator.GetLatestInput());
 
         ScoreManager.instance.ComputeScore(timingWindow);
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,7 @@ public class ScoreManager : MonoBehaviour
 
     private uint score;
     private uint combo;
+    private uint highCombo;
     private float acuracy;
 
     private uint[] timingCount;
@@ -37,6 +39,7 @@ public class ScoreManager : MonoBehaviour
     public void Initialize()
     {
         combo = 0;
+        highCombo = 0;
         score = 0;
         acuracy = 1.0f;
         timingCount = new uint[scoreValuesPerTimingWindow.Length + 1];
@@ -72,6 +75,10 @@ public class ScoreManager : MonoBehaviour
         {
             scoreCount += scoreValuesPerTimingWindow[timingWindowIndex];
             combo++;
+            if (combo > highCombo)
+            {
+                highCombo = combo;
+            }
             score += combo * scoreValuesPerTimingWindow[timingWindowIndex];
         }
 
@@ -79,5 +86,16 @@ public class ScoreManager : MonoBehaviour
         acuracy = scoreCount / (float)maxValue;
 
         UpdateDisplay();
+    }
+
+    public void SaveCurentScore()
+    {
+        SongScores.SongScore currentScore = new SongScores.SongScore();
+        currentScore.time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        currentScore.score = score;
+        currentScore.combo = highCombo;
+        currentScore.acuracy = acuracy;
+
+        SongScores.AddScore(SongManager.currentSongName, currentScore);
     }
 }

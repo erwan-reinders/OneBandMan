@@ -15,16 +15,14 @@ public class VolumeManager : MonoBehaviour
     public void UpdateVolume()
     {
         UserSettings userSettings;
-        string fileName = "userSettings";
-        TextAsset file = Resources.Load<TextAsset>(fileName);
-        if (file == null)
+        string text = Util.ReadFile(Util.GetDataPath() + "/userSettings.json");
+        if (text.Equals(""))
         {
             userSettings = new UserSettings();
         }
         else
         {
-            userSettings = UserSettings.LoadFromJSON(file.text);
-            Resources.UnloadAsset(file);
+            userSettings = UserSettings.LoadFromJSON(text);
         }
 
         float musicVolume = userSettings.globalVolume * userSettings.musicVolume;

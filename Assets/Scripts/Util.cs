@@ -1,3 +1,5 @@
+using System.IO;
+using System.Text;
 using UnityEngine;
 
 public static class Util
@@ -49,5 +51,65 @@ public static class Util
             text = text.Insert(textLength - i, " ");
         }
         return text;
+    }
+
+    public static string FormatPercent(float percent)
+    {
+        return Mathf.Round(percent * 1000f)/10f + "%";
+    }
+
+
+    public static string GetDataPath()
+    {
+        string dataPath = Application.dataPath + "/Data";
+        if (!Directory.Exists(dataPath))
+        {
+            Directory.CreateDirectory(dataPath);
+        }
+        return dataPath;
+    }
+    public static string GetSongPath(string songName)
+    {
+        string songPath = GetDataPath() + "/" + songName;
+        if (!Directory.Exists(songPath))
+        {
+            Directory.CreateDirectory(songPath);
+        }
+        return songPath;
+    }
+
+    public static string ReadFile(string filePath)
+    {
+        FileStream fs;
+        int readLen = 1024;
+        if (File.Exists(filePath))
+        {
+            fs = File.OpenRead(filePath);
+
+            byte[] readArr = new byte[readLen];
+            int count;
+            StringBuilder text = new StringBuilder();
+            while ((count = fs.Read(readArr, 0, readLen)) > 0) {
+                text.Append(Encoding.UTF8.GetString(readArr, 0, count));
+            }
+
+            fs.Close();
+
+            return text.ToString();
+        }
+
+        return "";
+    }
+
+    public static void WriteFile(string filePath, string text)
+    {
+        FileStream fs;
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+        }
+        fs = File.Create(filePath);
+        fs.Write(Encoding.UTF8.GetBytes(text));
+        fs.Close();
     }
 }

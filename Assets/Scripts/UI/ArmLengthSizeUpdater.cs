@@ -11,7 +11,16 @@ public class ArmLengthSizeUpdater : GrabableObject
     private void Start()
     {
         OnStart();
-        transform.localScale = Vector3.one * (2 * tromboneInput.armLength);
+        float length;
+        if (tromboneInput != null)
+        {
+            length = tromboneInput.armLength;
+        }
+        else
+        {
+            length = violinInput.violinArmLength;
+        }
+        transform.localScale = Vector3.one * (2 * length);
     }
 
     void Update()
@@ -19,10 +28,25 @@ public class ArmLengthSizeUpdater : GrabableObject
         if (isGrabed)
         {
             float length = Vector3.Distance(transform.position, handHandle.transform.position);
-            tromboneInput.armLength = length;
-            violinInput.violinArmLength = length;
+            if (tromboneInput != null)
+            {
+                tromboneInput.armLength = length - tromboneInput.minDistance;
+            }
+            if (violinInput != null)
+            {
+                violinInput.violinArmLength = length - violinInput.violinMinDistance;
+            }
 
-            transform.localScale = Vector3.one * (2 * tromboneInput.armLength);
+            float armLength;
+            if (tromboneInput != null)
+            {
+                armLength = tromboneInput.armLength;
+            }
+            else
+            {
+                armLength = violinInput.violinArmLength;
+            }
+            transform.localScale = Vector3.one * (2 * armLength);
 
             if (CheckDeviceInput())
             {

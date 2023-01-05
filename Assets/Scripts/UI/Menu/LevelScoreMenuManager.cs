@@ -30,27 +30,27 @@ public class LevelScoreMenuManager : MonoBehaviour
             Destroy(scoresParent.transform.GetChild(i).gameObject);
         }
 
-        string path = songName + "/scores";
-        TextAsset file = Resources.Load<TextAsset>(path);
-        if (file == null)
+        string path = Util.GetSongPath(songName) + "/scores.json";
+        string text = Util.ReadFile(path);
+        if (text.Equals(""))
         {
             Debug.LogWarning("There is no score file (" + path + ")");
         }
         else
         {
-            SongScores songScores = SongScores.LoadFromJSON(file.text);
-            Resources.UnloadAsset(file);
+            SongScores songScores = SongScores.LoadFromJSON(text);
 
-            foreach (SongScores.SongScore score in songScores.scores)
+            for (int i = songScores.scores.Count-1; i >= 0; i--)
             {
+                SongScores.SongScore score = songScores.scores[i];
                 ScoreItemManager scoreItem = Instantiate(scorePrefab, scoresParent.transform);
 
                 scoreItem.scoreText.text = Util.FormatInt(score.score.ToString());
-                scoreItem.acuracyComboText.text = score.acuracy + " | " + Util.FormatInt(score.combo.ToString());
+                scoreItem.acuracyComboText.text = Util.FormatPercent(score.acuracy) + " | " + Util.FormatInt(score.combo.ToString());
 
                 DateTimeOffset scoreTime = DateTimeOffset.FromUnixTimeMilliseconds(score.time);
                 DateTimeOffset nowTime = DateTimeOffset.Now;
-                bool displayDate = scoreTime.Day == nowTime.Day && scoreTime.Month == nowTime.Month && scoreTime.Year == nowTime.Year;
+                bool displayDate = scoreTime.Day != nowTime.Day || scoreTime.Month != nowTime.Month || scoreTime.Year != nowTime.Year;
                 string timeText = "";
                 if (displayDate)
                 {

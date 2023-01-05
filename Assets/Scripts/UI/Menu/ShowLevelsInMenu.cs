@@ -11,7 +11,7 @@ public class ShowLevelsInMenu : MonoBehaviour
 
     void Start()
     {
-        string resourcesPath = Application.dataPath + "/Resources";
+        string resourcesPath = Util.GetDataPath();
 
         DirectoryInfo resourceInfo = new DirectoryInfo(resourcesPath);
         if (resourceInfo.Exists)

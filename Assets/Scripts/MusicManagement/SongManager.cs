@@ -4,57 +4,25 @@ using UnityEngine;
 
 public class SongManager : MonoBehaviour
 {
+    public static string currentSongName;
+    public static string IN_SONG_FILE_NAME = "songNotes.json";
+
     public string songName;
     public SongChanelManager[] chanels;
 
-    public static string GetSongPathFromName(string songName)
-    {
-        return Application.dataPath + "/Resources/" + songName;
-    }
-
     public static void SaveSongToJSON(string songName, SongSettings songSettings)
     {
-        string path = GetSongPathFromName(songName);
-        string filePath = path + "/songNotes.json";
-        FileStream file;
-        if (File.Exists(path))
-        {
-            File.Delete(path);
-            File.Delete(path+".meta");
-        }
-
-        if (!Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-        }
-        file = File.Create(filePath);
-
-        string json = SongSettings.SaveToJSON(songSettings);
-        file.Write(Encoding.ASCII.GetBytes(json));
-        file.Close();
+        Util.WriteFile(Util.GetSongPath(songName) + "/" + IN_SONG_FILE_NAME, SongSettings.SaveToJSON(songSettings));
     }
 
     public static SongSettings LoadSongFromJSON(string songName)
     {
-        string path = songName + "/songNotes";
-        TextAsset file = Resources.Load<TextAsset>(path);
-        if (file == null)
-        {
-            Debug.LogError("Error : " + songName + " does not exists ("+ GetSongPathFromName(songName)+ " does not contain a \"songNotes.json\" file)");
-            Resources.UnloadAsset(file);
-            return SongSettings.LoadFromJSON("");
-        }
-        Resources.UnloadAsset(file);
-        return SongSettings.LoadFromJSON(file.text);
-    }
-
-    public static AudioClip GetSong(string songName)
-    {
-        return Resources.Load<AudioClip>(songName + "/song");
+        return SongSettings.LoadFromJSON(Util.ReadFile(Util.GetSongPath(songName) + "/" + IN_SONG_FILE_NAME));
     }
 
     private void Start()
     {
+        currentSongName = songName;
         if (songName.Length > 0) {
             SongSettings settings = LoadSongFromJSON(songName);
 
@@ -76,7 +44,7 @@ public class SongManager : MonoBehaviour
                 channel.SetNotes(notes);
             }
 
-            Conductor.Instance.musicSource.clip = GetSong(songName);
+            Conductor.Instance.musicSource.clip = Resources.Load<AudioClip>(songName);
         }
 
 

@@ -112,6 +112,21 @@ public class SongSettings
     }
 
     [Serializable]
+    public class SongLongNote : SongNote
+    {
+        public double beatDuration;
+        public SongLongNote(double beat, double beatDuration)
+        {
+            this.beat = beat;
+            this.beatDuration = beatDuration;
+        }
+        public override Note Construct(SongChanelManager songChanelManager)
+        {
+            return new LongNote(beat, beatDuration, songChanelManager);
+        }
+    }
+
+    [Serializable]
     public class SongGuitarStrumNote : SongNote
     {
         public override Note Construct(SongChanelManager songChanelManager)

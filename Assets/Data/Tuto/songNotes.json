@@ -1,0 +1,49 @@
+{
+  "BPM": 80.0,
+  "songChanels": [
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 0.0,
+          "visible": true
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 4.0
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 5.0,
+          "visible": false
+        }
+      ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 0.0,
+          "visible": false
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 6.0,
+          "visible": true
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 8.0
+        }
+      ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 10.0
+        }
+      ]
+    }
+  ]
+}

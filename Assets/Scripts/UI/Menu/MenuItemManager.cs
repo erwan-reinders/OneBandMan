@@ -15,10 +15,7 @@ public class MenuItemManager : MonoBehaviour
 
     public void Init()
     {
-        if (!File.Exists(Application.dataPath + "/Scenes/" + levelName.text + ".unity"))
-        {
-            goButton.interactable = false;
-        }
+
     }
 
     public void Select()

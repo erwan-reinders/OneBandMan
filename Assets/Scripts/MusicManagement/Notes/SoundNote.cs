@@ -12,7 +12,7 @@ public class SoundNote : SimpleNote
         soundClip = SoundManager.instance.GetClip(soundName);
     }
 
-    protected override void OnAction(int timingWindow)
+    protected override void OnAction(int timingWindow, double timing)
     {
         //Todo play effects
 

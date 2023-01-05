@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class SettingsMenuManager : MonoBehaviour
 {
+    public static string FILE_NAME = "userSettings.json";
+
     public MainMenuManager mainMenuManager;
 
     public UserSettings userSettings;
@@ -28,16 +30,14 @@ public class SettingsMenuManager : MonoBehaviour
 
     private void Start()
     {
-        string fileName = "userSettings";
-        TextAsset file = Resources.Load<TextAsset>(fileName);
-        if (file == null)
+        string text = Util.ReadFile(Util.GetDataPath() + "/" + FILE_NAME);
+        if (text.Equals(""))
         {
             userSettings = new UserSettings();
         }
         else
         {
-            userSettings = UserSettings.LoadFromJSON(file.text);
-            Resources.UnloadAsset(file);
+            userSettings = UserSettings.LoadFromJSON(text);
         }
 
         InitValues();
@@ -63,20 +63,8 @@ public class SettingsMenuManager : MonoBehaviour
 
     private void SaveSettings()
     {
-        string path = Application.dataPath + "/Resources/userSettings.json";
-        FileStream fileStream;
-        if (File.Exists(path))
-        {
-            File.Delete(path);
-            File.Delete(path + ".meta");
-        }
-        fileStream = File.Create(path);
-
-        string json = UserSettings.SaveToJSON(userSettings);
-        fileStream.Write(Encoding.ASCII.GetBytes(json));
-        fileStream.Close();
+        Util.WriteFile(Util.GetDataPath() + "/" + FILE_NAME, UserSettings.SaveToJSON(userSettings));
     }
-
 
     public void ToggleCanPause()
     {
@@ -153,7 +141,7 @@ public class SettingsMenuManager : MonoBehaviour
 
     public void DeleteAllData()
     {
-        string resourcesPath = Application.dataPath + "/Resources";
+        string resourcesPath = Util.GetDataPath();
 
         DirectoryInfo resourceInfo = new DirectoryInfo(resourcesPath);
         if (resourceInfo.Exists)

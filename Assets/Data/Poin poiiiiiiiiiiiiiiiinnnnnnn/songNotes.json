@@ -1,0 +1,508 @@
+{
+  "BPM": 80.0,
+  "songChanels": [
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 0.0,
+          "visible": true
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 0.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 11.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 15.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 17.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 18.0
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 22.5,
+          "visible": false
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 44.0,
+          "visible": true
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 54.0,
+          "beatDuration": 1.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 58.0,
+          "beatDuration": 1.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 70.0
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 76.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 95.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 97.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 99.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 101.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 102.0
+        },
+        {
+          "$type": "SongSettings+SongEndSong, Assembly-CSharp",
+          "beat": 108.0
+        }
+      ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 3.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 7.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 10.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 14.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 15.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 18.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 50.0,
+          "beatDuration": 1.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 60.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 63.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 67.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 69.75
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 71.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 75.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 77.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 79.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 84.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 87.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 91.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 94.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 98.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 99.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 102.5
+        }
+      ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 1.0,
+          "beatDuration": 1.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 3.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 8.0,
+          "beatDuration": 1.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 9.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 12.0,
+          "beatDuration": 1.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 13.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 16.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 19.0
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 20.0,
+          "beatDuration": 2.0
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 52.0,
+          "beatDuration": 1.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 61.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 65.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 66.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 68.0,
+          "beatDuration": 1.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 69.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 73.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 74.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 78.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 83.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 85.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 87.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 92.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 93.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 96.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 97.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 100.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 103.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 104.0
+        }
+      ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 4.0,
+          "beatDuration": 1.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 6.0
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 48.0,
+          "beatDuration": 1.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 56.0,
+          "beatDuration": 1.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 62.0,
+          "beatDuration": 0.5
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 64.0,
+          "beatDuration": 1.0
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 72.0,
+          "beatDuration": 1.0
+        },
+        {
+          "$type": "SongSettings+SongLongNote, Assembly-CSharp",
+          "beat": 80.0,
+          "beatDuration": 2.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 88.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 90.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 93.0
+        }
+      ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 0.0,
+          "visible": false
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 22.0,
+          "visible": true
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 24.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 26.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 28.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 30.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 32.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 33.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 34.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 36.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 37.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 40.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 41.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 43.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 44.0
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 45.0,
+          "visible": false
+        },
+        {
+          "$type": "SongSettings+SongInstrumentVisibility, Assembly-CSharp",
+          "beat": 82.0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "notes": [
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 25.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 27.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 28.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 29.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 31.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 32.0
+        },
+
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 33.5
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 34.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 38.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 42.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 86.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 90.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 94.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 98.0
+        },
+        {
+          "$type": "SongSettings+SongSimpleNote, Assembly-CSharp",
+          "beat": 104.0
+        }
+      ]
+    }
+  ]
+}

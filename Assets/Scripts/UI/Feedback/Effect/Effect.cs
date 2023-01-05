@@ -22,8 +22,11 @@ public class Effect : MonoBehaviour
     public void Init()
     {
         gameObject.SetActive(true);
+    }
 
-        relativePosition = Vector3.zero;
+    void OnEnable()
+    {
+        relativePosition = transform.position;
         relativeRotation = Vector3.zero;
 
         velocity = new Vector3(Random.Range(-launchSpeedMax, launchSpeedMax) * 0.5f, Random.Range(launchSpeedMin, launchSpeedMax), 0f);
@@ -39,7 +42,7 @@ public class Effect : MonoBehaviour
 
         relativeRotation = relativeRotation + rotationVelocity * Time.deltaTime;
 
-        transform.localPosition = relativePosition + new Vector3(Random.Range(-vibratePositionAmount, vibratePositionAmount), Random.Range(-vibratePositionAmount, vibratePositionAmount), Random.Range(-vibratePositionAmount, vibratePositionAmount));
+        transform.position = relativePosition + new Vector3(Random.Range(-vibratePositionAmount, vibratePositionAmount), Random.Range(-vibratePositionAmount, vibratePositionAmount), Random.Range(-vibratePositionAmount, vibratePositionAmount));
         transform.localEulerAngles = relativeRotation + new Vector3(Random.Range(-vibrateRotationAmount, vibrateRotationAmount), Random.Range(-vibrateRotationAmount, vibrateRotationAmount), Random.Range(-vibrateRotationAmount, vibrateRotationAmount));
 
         curentTime -= Time.deltaTime;

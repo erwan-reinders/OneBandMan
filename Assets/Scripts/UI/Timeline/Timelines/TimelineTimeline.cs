@@ -17,7 +17,7 @@ public class TimelineTimeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        double time = Conductor.Instance.songPositionInBeats * (multiplcator / TimelineProjectSettings.instance.defaultFrameRate);
+        double time = Conductor.Instance.songPositionInBeats * (multiplcator / Application.targetFrameRate);
         if (loop)
         {
             time -= loopCounter * director.duration;

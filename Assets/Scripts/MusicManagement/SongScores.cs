@@ -8,7 +8,14 @@ using UnityEngine;
 [Serializable]
 public class SongScores
 {
+    public static string IN_SONG_FILE_NAME = "scores.json";
+
     public List<SongScore> scores;
+
+    public SongScores()
+    {
+        scores = new List<SongScore>();
+    }
 
     private static JsonSerializerSettings GetSettings()
     {
@@ -27,23 +34,26 @@ public class SongScores
 
     public static void SaveSongToJSON(string songName, SongScores songScores)
     {
-        string path = Application.dataPath + "/Resources/" + songName;
-        string filePath = path + "/scores.json";
-        FileStream file;
-        if (File.Exists(path))
-        {
-            File.Delete(path);
-            File.Delete(path + ".meta");
-        }
-        if (!Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-        }
-        file = File.Create(filePath);
+        Util.WriteFile(Util.GetSongPath(songName) + "/" + IN_SONG_FILE_NAME, JsonConvert.SerializeObject(songScores, GetSettings()));
+    }
 
-        string json = JsonConvert.SerializeObject(songScores, GetSettings());
-        file.Write(Encoding.ASCII.GetBytes(json));
-        file.Close();
+    public static void AddScore(string songName, SongScore score)
+    {
+        string path = Util.GetSongPath(songName) + "/" + IN_SONG_FILE_NAME;
+        string text = Util.ReadFile(path);
+        SongScores scores;
+        if (text.Equals(""))
+        {
+            scores = new SongScores();
+        }
+        else
+        {
+            scores = LoadFromJSON(text);
+        }
+
+        scores.scores.Add(score);
+
+        Util.WriteFile(path, JsonConvert.SerializeObject(scores, GetSettings()));
     }
 
     [Serializable]
