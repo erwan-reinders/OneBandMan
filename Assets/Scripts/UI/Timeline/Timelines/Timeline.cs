@@ -43,6 +43,7 @@ public class Timeline : MonoBehaviour
                         if (!loop)
                         {
                             enabled = false;
+                            condition = false;
                         }
                     }
                     currentEvent = timelineObject.transform.GetChild(currentEventId).GetComponent<BeatEvent>();
