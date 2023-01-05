@@ -1,8 +1,8 @@
 {
   "canPause": true,
-  "globalVolume": 0.72995156,
+  "globalVolume": 1.0,
   "musicVolume": 1.0,
-  "soundVolume": 1.0,
+  "soundVolume": 0.377718627,
   "instrumentSettings": {
     "Trombone": {
       "latency": 0,
