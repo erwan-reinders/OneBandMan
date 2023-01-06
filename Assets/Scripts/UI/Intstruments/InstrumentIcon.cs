@@ -13,13 +13,13 @@ public class InstrumentIcon : MonoBehaviour
 
     void Start()
     {
-        initialPos = transform.position;
+        initialPos = transform.localPosition;
         target = initialPos;
     }
 
     void Update()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, target, ref currentSpeed, beat * (float)Conductor.Instance.secPerBeat);
+        transform.localPosition = Vector3.SmoothDamp(transform.localPosition, target, ref currentSpeed, beat * (float)Conductor.Instance.secPerBeat);
     }
 
     public void Hide()
